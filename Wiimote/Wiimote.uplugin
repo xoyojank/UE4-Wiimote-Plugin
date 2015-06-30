@@ -1,0 +1,23 @@
+{
+	"FileVersion" : 3,
+
+	"FriendlyName" : "Wiimote Plugin",
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"CreatedBy" : "xoyojank",
+	"CreatedByURL" : "http://blog.csdn.net/xoyojank",
+	"EngineVersion" : "4.2.0",
+	"Description" : "Experimental support for the Wiimote",
+	"Category" : "NUI.Devices",
+	"EnabledByDefault" : false,
+	"IsBetaVersion" : true,
+
+	"Modules" :
+	[
+		{
+			"Name" : "Wiimote",
+			"Type" : "Runtime",
+			"WhitelistPlatforms" : [ "Win64", "Win32" ]
+		}
+	]
+}
