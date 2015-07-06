@@ -1,9 +1,20 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+using System.IO;
+using System;
 
 namespace UnrealBuildTool.Rules
 {
 	public class Wiimote : ModuleRules
 	{
+        private string ModulePath
+        {
+            get { return Path.GetDirectoryName(RulesCompiler.GetModuleFilename(this.GetType().Name)); }
+        }
+		private string ThirdPartyPath
+		{
+			get { return Path.GetFullPath(Path.Combine(ModulePath, "../../ThirdParty/")); }
+		}
+
 		public Wiimote(TargetInfo Target)
 		{
 
@@ -29,7 +40,6 @@ namespace UnrealBuildTool.Rules
 					"Engine",
 					"InputDevice",
 					"InputCore",
-					"WiiUse",
 					// ... add other public dependencies that you statically link with here ...
 				}
                 );
@@ -45,16 +55,14 @@ namespace UnrealBuildTool.Rules
 				}
 				);
 
-            DynamicallyLoadedModuleNames.AddRange(
-                new string[]
-				{                  
-                    "WiiUse",
-					// ... add any modules that your module loads dynamically here ...
-				}
-                );
+			if(Target.Platform == UnrealTargetPlatform.Win64)
+			{
+				PublicAdditionalLibraries.Add(Path.Combine(ThirdPartyPath, "WiiUse/lib/Win64", "wiiuse.lib"));
 
+				PrivateIncludePaths.Add(Path.Combine(ThirdPartyPath, "WiiUse/inc"));
+			}
 
-            if (UEBuildConfiguration.bBuildEditor == true)
+	        if (UEBuildConfiguration.bBuildEditor == true)
             {
                 //@TODO: Needed for the triangulation code used for sprites (but only in editor mode)
                 //@TOOD: Try to move the code dependent on the triangulation code to the editor-only module
