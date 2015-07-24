@@ -1,6 +1,7 @@
 # UE4-Wiimote-Plugin
 
-place the folder under UnrealEngine/Engine/Plugins/Experimental/, and regenerate&build the project.
+place the "Wiimote" folder under UnrealEngine/Engine/Plugins/Experimental/, and regenerate&build the project.
+copy the "wiiuse.dll" into UnrealEngine/Engine/Binaries/Win64/
 
 # Connect Guide: 
 * RVL-CNT-01: http://www.dolphin-emulator.com/connect-wiimote.html
