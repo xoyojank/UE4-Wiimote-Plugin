@@ -68,6 +68,8 @@ namespace UnrealBuildTool.Rules
                 //@TOOD: Try to move the code dependent on the triangulation code to the editor-only module
               //  PrivateDependencyModuleNames.AddRange(new string [] {"UnrealEd","ContentBrowser"});
             }
-		}
+
+            PublicDelayLoadDLLs.Add("wiiuse.dll");
+        }
 	}
 }
