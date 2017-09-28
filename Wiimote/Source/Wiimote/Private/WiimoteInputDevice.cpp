@@ -399,7 +399,7 @@ void FWiimoteInputDevice::handle_ctrl_status(struct wiimote_t* wm, int id)
     UE_LOG(LogWiimote, Log, TEXT("battery:         %f %%"), wm->battery_level);
 }
 
-void FWiimoteInputDevice::handle_disconnect(wiimote* wm, int id)
+void FWiimoteInputDevice::handle_disconnect((struct wiimote_t* wm, int id)
 {
     UE_LOG(LogWiimote, Log, TEXT("\n\n--- DISCONNECTED [wiimote id %i] ---"), wm->unid);
 }

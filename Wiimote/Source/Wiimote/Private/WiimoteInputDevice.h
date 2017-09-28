@@ -85,7 +85,7 @@ private:
     *   This can happen if the POWER button is pressed, or
     *   if the connection is interrupted.
     */
-    void handle_disconnect(wiimote* wm, int id);
+    void handle_disconnect(struct wiimote_t* wm, int id);
 
 private:
 
